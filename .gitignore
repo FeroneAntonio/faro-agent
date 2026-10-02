@@ -1,0 +1,13 @@
+# Credenziali e configurazioni locali
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+# File locali
+.DS_Store
+Thumbs.db
+node_modules/
+__pycache__/
+*.log

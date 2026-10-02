@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FARO — Agente di ateneo contro la dispersione</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-block">
+        <h1>FARO — Agente di ateneo contro la dispersione</h1>
+        <p>Università degli Studi di Napoli Federico II</p>
+      </div>
+      <div class="cohort-badge">Coorte Ingegneria Informatica 2025/26 · 60 studenti</div>
+    </div>
+  </header>
+
+  <nav class="app-nav" aria-label="Navigazione principale">
+    <div class="nav-inner">
+      <a href="#/panoramica" class="nav-link" data-view="panoramica">Panoramica</a>
+      <a href="#/analisi" class="nav-link" data-view="analisi">Analisi</a>
+      <a href="#/piano" class="nav-link" data-view="piano" title="Disponibile dopo la conferma del piano">
+        <span class="lock-icon" aria-hidden="true"></span>
+        Piano operativo
+      </a>
+      <a href="#/impatto" class="nav-link" data-view="impatto" title="Disponibile dopo la conferma del piano">
+        <span class="lock-icon" aria-hidden="true"></span>
+        Impatto
+      </a>
+    </div>
+  </nav>
+
+  <main class="app-main">
+    <section id="view-panoramica" class="view view-active" data-view="panoramica">
+      <div class="view-header">
+        <div>
+          <p class="section-kicker">Panoramica</p>
+          <h2>Registro carriere collegato</h2>
+          <p>Coorte Ingegneria Informatica 2025/26, monitoraggio settimanale con criteri dichiarati.</p>
+        </div>
+        <span class="status-pill">Pronto per la scansione</span>
+      </div>
+
+      <section class="surface registry-panel">
+        <div>
+          <p class="label">Ultima scansione</p>
+          <strong>Non ancora eseguita in questa sessione</strong>
+        </div>
+        <div>
+          <p class="label">Prossima scansione automatica</p>
+          <strong>Lunedì, 06:00</strong>
+        </div>
+      </section>
+
+      <section class="kpi-strip" aria-label="Indicatori di configurazione">
+        <div class="kpi-tile">
+          <span class="kpi-value">60</span>
+          <span class="kpi-label">studenti</span>
+        </div>
+        <div class="kpi-tile">
+          <span class="kpi-value">5</span>
+          <span class="kpi-label">tutor attivi</span>
+        </div>
+        <div class="kpi-tile">
+          <span class="kpi-value">1</span>
+          <span class="kpi-label">scansione settimanale</span>
+        </div>
+      </section>
+
+      <button id="btn-analizza" class="btn-primary btn-grande" type="button" data-start-analysis>
+        Esegui analisi della coorte
+      </button>
+    </section>
+
+    <section id="view-analisi" class="view" data-view="analisi">
+      <div class="view-header">
+        <div>
+          <p class="section-kicker">Analisi</p>
+          <h2>Run dell'agente</h2>
+          <p>Scansione della coorte, proposta di intervento e monitoraggio settimanale.</p>
+        </div>
+        <span id="analysis-state" class="status-pill">Da avviare</span>
+      </div>
+
+      <section class="agent-squad surface" aria-label="Squadra di agenti">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Squadra di agenti</p>
+            <h3>Componenti agentivi specializzati</h3>
+          </div>
+          <span class="caption">Componenti agentivi specializzati, coordinati da Faro — pattern subagent, pronto per l'orchestrazione in watsonx Orchestrate.</span>
+        </div>
+        <div class="agent-squad-grid">
+          <div class="agent-tile tag-sentinella"><strong>SENTINELLA</strong><span>percezione</span></div>
+          <div class="agent-tile tag-valutatore"><strong>VALUTATORE</strong><span>valutazione</span></div>
+          <div class="agent-tile tag-coordinatore"><strong>COORDINATORE</strong><span>dispatch</span></div>
+          <div class="agent-tile tag-verificatore"><strong>VERIFICATORE</strong><span>monitoraggio</span></div>
+        </div>
+      </section>
+
+      <ol id="analysis-stepper" class="stepper" aria-label="Avanzamento del processo">
+        <li data-step="scansione"><span>1</span>Scansione</li>
+        <li data-step="proposte"><span>2</span>Proposte</li>
+        <li data-step="conferma"><span>3</span>Conferma</li>
+        <li data-step="monitoraggio"><span>4</span>Monitoraggio</li>
+      </ol>
+
+      <section id="analysis-empty" class="surface empty-state">
+        <h3>Analisi non ancora avviata</h3>
+        <p>Il registro carriere è collegato. La scansione produce log decisionale, proposte tutor e casi fuori perimetro.</p>
+        <button id="btn-analizza-analisi" class="btn-primary btn-grande" type="button" data-start-analysis>
+          Esegui analisi della coorte
+        </button>
+      </section>
+
+      <section id="sezione-log" class="analysis-section hidden">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Log agente</p>
+            <h3>Elaborazione progressiva</h3>
+          </div>
+          <span class="caption">Una riga ogni circa 400 ms</span>
+        </div>
+        <div id="log-container" class="log-container"></div>
+      </section>
+
+      <section id="sezione-proposte" class="analysis-section hidden"></section>
+
+      <section id="sezione-v2" class="analysis-section hidden"></section>
+      <section id="sezione-proposte-v2" class="analysis-section hidden"></section>
+      <section id="azioni-verificatore-analisi" class="analysis-section hidden"></section>
+
+      <section id="sezione-traccia" class="hidden">
+        <details>
+          <summary>Traccia agente — formula, vincoli e punteggi</summary>
+          <div id="traccia-agente-body"></div>
+        </details>
+      </section>
+    </section>
+
+    <section id="view-piano" class="view" data-view="piano">
+      <section id="piano-lock" class="surface locked-panel">
+        <span class="lock-shape" aria-hidden="true"></span>
+        <div>
+          <h2>Piano operativo non ancora disponibile</h2>
+          <p>Disponibile dopo la conferma del piano.</p>
+        </div>
+      </section>
+
+      <div id="piano-content" class="hidden">
+        <div class="view-header">
+          <div>
+            <p class="section-kicker">Piano operativo</p>
+            <h2>Interventi approvati</h2>
+            <p>Calendario colloqui, bozze di convocazione e report per il coordinatore.</p>
+          </div>
+          <button id="btn-scarica" class="btn-secondary" type="button">Scarica report</button>
+        </div>
+
+        <section class="surface"><div id="calendario-colloqui"></div></section>
+        <section class="surface"><div id="bozze-email"></div></section>
+        <section class="surface"><div id="report-sintetico"></div></section>
+      </div>
+    </section>
+
+    <section id="view-impatto" class="view" data-view="impatto">
+      <section id="impatto-lock" class="surface locked-panel">
+        <span class="lock-shape" aria-hidden="true"></span>
+        <div>
+          <h2>Dashboard non ancora disponibile</h2>
+          <p>Disponibile dopo la conferma del piano.</p>
+        </div>
+      </section>
+
+      <div id="impatto-content" class="hidden">
+        <div class="view-header">
+          <div>
+            <p class="section-kicker">Impatto</p>
+            <h2>Dashboard e monitoraggio</h2>
+            <p>Metriche calcolate dai dati e mappa dei target ONU 2030 serviti.</p>
+          </div>
+          <span class="status-pill">Human-in-the-loop</span>
+        </div>
+        <section class="surface"><div id="dashboard"></div></section>
+        <section id="esiti-placeholder" class="surface">
+          <h3>Esiti del ciclo di verifica</h3>
+          <p class="nota-muted">Disponibile dopo il primo ciclo di verifica.</p>
+        </section>
+        <section id="esiti-ciclo" class="surface hidden"></section>
+        <section id="azioni-verificatore" class="surface hidden"></section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p class="governance">Privacy by design · Matricole pseudonimizzate · Human-in-the-loop · Criteri dichiarati</p>
+    <p>Faro Agent — Challenge Codemotion / IBM · Agenda ONU 2030: target 4.3, 8.6, 10.2</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

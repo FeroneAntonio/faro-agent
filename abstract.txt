@@ -1,0 +1,9 @@
+Il problema: in Italia più di uno studente su otto abbandona l'università tra il primo e il secondo anno (ANVUR 2026), e la dispersione colpisce soprattutto i più fragili. Gli atenei possiedono già i segnali per accorgersene come crediti, esami, inattività  ma nessuno li osserva in tempo.
+
+Faro Agent è una soluzione che contribuisce al raggiungimento di più obiettivi dell'agenda ONU 2030 — target 4.3 (SDG 4, Istruzione di qualità), 8.6 (giovani NEET) e 10.2 (SDG 10, inclusione) — integrando l'intelligenza artificiale dove serve: trasformare dati amministrativi in interventi tempestivi.
+
+La soluzione: quattro componenti agentivi specializzati — percezione, valutazione, dispatch, verifica — coordinati in un ciclo autonomo. Ogni settimana l'agente prende l'iniziativa: analizza il registro carriere (simulato nel prototipo), assegna fasce di rischio con indicatori trasparenti e propone percorsi di supporto — tutor compatibile per competenze e orari, ricevimenti dei docenti, gruppi di studio, counseling di ateneo — con motivazione, prima azione e piano di rientro; i casi fuori perimetro vanno ai servizi dedicati. Il tutor approva con una conferma; al ciclo successivo l'agente verifica gli esiti, corregge le priorità e prepara i messaggi di riconoscimento per chi migliora: l'università resta al fianco anche nei successi. Iniziativa autonoma e spiegabilità: nessuna decisione automatica, criteri dichiarati, privacy by design. Prototipo sviluppato con IBM Bob secondo lo Spec-Driven Development.
+
+I beneficiari: studenti a rischio, tutor, coordinatori, l'ateneo che riduce la dispersione.
+
+L'impatto atteso, misurato da metriche calcolate: studenti intercettati per fascia, giorni all'intervento da mesi a sette, copertura tutor, crediti recuperabili. 
